@@ -37,7 +37,7 @@ $args          = array(
 						'type'     => 'ajax-terms',
 						'data'     => array(
 							'taxonomy'    => 'product_cat',
-							'placeholder' => __( 'Search for a category&hellip;', 'yith-woocommerce-tab-manager' ),
+							'placeholder' => __( 'Search for a category', 'yith-woocommerce-tab-manager' ),
 						),
 						'multiple' => true,
 						'deps'     => array(
@@ -54,7 +54,7 @@ $args          = array(
 						'multiple' => true,
 						'std'      => array(),
 						'data'     => array(
-							'placeholder' => __( 'Search for a product&hellip;', 'yith-woocommerce-tab-manager' ),
+							'placeholder' => __( 'Search for a product', 'yith-woocommerce-tab-manager' ),
                             'show_id' => true
 						),
 						'deps'     => array(

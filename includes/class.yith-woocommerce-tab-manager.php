@@ -116,6 +116,8 @@ if ( ! class_exists( 'YITH_WC_Tab_Manager' ) ) {
 				$this,
 				'yith_add_retina_to_icons'
 			), 10, 2 );
+
+
 		}
 
 		/**

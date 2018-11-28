@@ -152,7 +152,7 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
 
             $all_tabs = array_merge( $global_tabs,$filtered_category_tabs,$filtered_product_tabs );
 
-            return  $all_tabs ;
+            return  apply_filters('yith_tab_manager_current_product_tabs', $all_tabs) ;
         }
 
         /**
