@@ -3,7 +3,7 @@
  * Plugin Name: HYP Tab
  * Plugin URI: https://github.com/hypericumimpex/hyp-tab/
  * Description: <strong><code>HYP Tab Manager</code></strong>vă permite să adăugați taburi pentru produse. Puteți crea un tab global sau pe categorii de produse sau produse! Puteți alege din diferite tipuri de taburi, cum ar fi editorul, formularul de contact etc.
- * Version: 1.2.8
+ * Version: 1.2.9
  * Author: Romeo C.
  * Author URI: https://romeocovaci.com/
  * Text Domain: yith-woocommerce-tab-manager
@@ -47,7 +47,7 @@ yit_deactive_free_version( 'YWTM_FREE_INIT', plugin_basename( __FILE__ ) );
 
 
 if ( !defined( 'YWTM_VERSION' ) ) {
-    define( 'YWTM_VERSION', '1.2.8' );
+    define( 'YWTM_VERSION', '1.2.9' );
 }
 
 if ( ! defined( 'YWTM_PREMIUM' ) ) {
