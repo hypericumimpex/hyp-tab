@@ -18,6 +18,7 @@ $metabox_name = 'yit_metaboxes['.$field_id.']';
         <td class="<?php esc_attr_e( $key );?>">
 	        <?php $field_value = isset( $value[$field_name]  ) ? $value[$field_name] : '';?>
 
+
             <input type="text" name="<?php echo $metabox_name;?>[<?php echo $i;?>][<?php echo $field_name;?>]" value="<?php echo $field_value ;?>"/>
 
         </td>

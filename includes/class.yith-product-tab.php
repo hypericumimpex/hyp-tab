@@ -285,9 +285,9 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
                 for ( $i = 0; $i < $file_url_size; $i ++ ) {
                     if ( ! empty( $file_urls[ $i ] ) ) {
                         $files[ md5( $file_urls[ $i ] ) ] = array(
-                            'name' => $file_names[ $i ],
+                            'name' => wp_kses_post( wp_unslash( $file_names[ $i ] ) ),
                             'file' => $file_urls[ $i ],
-                            'desc' => $file_desc[ $i ]
+                            'desc' => wp_kses_post( wp_unslash($file_desc[ $i ] ) )
                         );
                     }
                 }
@@ -320,8 +320,8 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
                 for ( $i = 0; $i < $faqs_answer_size; $i ++ ) {
                     if ( ! empty( $faqs_answer[ $i ] ) ) {
                         $faqs[ $i ] = array(
-                            'question' => $faqs_question[ $i ],
-                            'answer'   => $faqs_answer[ $i ]
+                            'question' => wp_kses_post( wp_unslash($faqs_question[ $i ] ) ),
+                            'answer'   => wp_kses_post( wp_unslash( $faqs_answer[ $i ] ) )
                         );
                     }
                 }
