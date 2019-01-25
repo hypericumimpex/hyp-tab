@@ -47,7 +47,7 @@ if( !function_exists( 'ywtm_get_default_tab' ) ) {
         $tabs = array();
         $product = wc_get_product( $product_id );
         // Description tab - shows product content
-        if(  apply_filters( 'ywtm_override_tab_desc',$post->post_content, $post) ) {
+        if( apply_filters( 'ywtm_override_tab_desc',$post->post_content, $post) ) {
             $tabs['description'] = array(
                 'title' => __( 'Description', 'woocommerce' ),
                 'priority' => 10,

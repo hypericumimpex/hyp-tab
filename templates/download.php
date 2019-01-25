@@ -6,13 +6,14 @@
 			<?php
 			$file_name = isset( $file['name'] ) ? wp_unslash( $file['name'] ) : __( 'No file name', 'yith-woocommerce-tab-manager' );
 			$file_desc = isset( $file['desc'] ) ? wp_unslash( $file['desc'] ) : __( 'No file description', 'yith-woocommerce-tab-manager' );
+			$file_url = apply_filters( 'ywtm_change_url_path', $file['file'] );
 			?>
             <div class="single_download_container">
                 <div class="file_title">
                     <h4><?php echo $file_name; ?></h4>
                     <p><?php echo $file_desc; ?></p>
                 </div>
-                <div class="button_download"><a href="<?php echo $file['file']; ?>" download
+                <div class="button_download"><a href="<?php echo $file_url; ?>" download
                                                 target="_blank"><?php _e( 'Download File', 'yith-woocommerce-tab-manager' ); ?></a>
                 </div>
             </div>
