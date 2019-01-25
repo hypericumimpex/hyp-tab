@@ -9,7 +9,7 @@
  * Text Domain: yith-woocommerce-tab-manager
  * Domain Path: /languages/
  * WC requires at least: 3.0.0
- * WC tested up to: 3.5.0-rc.1
+ * WC tested up to: 3.5.4
  * @author Romeo C.
  * @package HYP Tab
  * @version 1.2.11
