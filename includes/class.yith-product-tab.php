@@ -145,6 +145,9 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
             $category_tabs = YITH_WCTM_Post_Type()->get_product_tabs( 'category', $get_all_tabs );
             $product_tabs = YITH_WCTM_Post_Type()->get_product_tabs( 'product',$get_all_tabs );
 
+	        $global_tabs = apply_filters('yith_tab_manager_current_product_tabs', $global_tabs );
+	        $category_tabs = apply_filters('yith_tab_manager_current_product_tabs', $category_tabs );
+	        $product_tabs = apply_filters('yith_tab_manager_current_product_tabs', $product_tabs );
 
             $filtered_category_tabs = $this->filter_tabs_by_category( $product, $category_tabs );
 
@@ -152,7 +155,7 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
 
             $all_tabs = array_merge( $global_tabs,$filtered_category_tabs,$filtered_product_tabs );
 
-            return  apply_filters('yith_tab_manager_current_product_tabs', $all_tabs) ;
+            return $all_tabs ;
         }
 
         /**
@@ -174,7 +177,9 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
                 $cats = ywtm_get_meta( $tab->ID, '_ywtm_tab_category' );
                 if (!empty($cats) && is_array( $cats ) ) {
                     foreach ($cats as $cat) {
+
                         $cat_id = yit_wpml_object_id($cat, 'product_cat');
+
                         if (in_array($cat_id, $categories)) {
 
                             $filtered_tabs[] = $tab;

@@ -3,13 +3,18 @@
 Contributors: yithemes
 Tags: tab, woocommerce, product, custom tab, e-commerce, ecommerce, commerce, global tab, product tab, tab manager, tabs, shop, yith, yit, yithemes
 Requires at least: 3.5.1
-Tested up to: 5.0
-Stable tag: 1.2.11
+Tested up to: 5.1.1
+Stable tag: 1.2.12
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Documentation: http://yithemes.com/docs-plugins/yith-woocommerce-tab-manager/
 
 == Changelog ==
+= 1.2.12 =
+* New: Support to WooCommerce 3.6 RC1
+* New: Support to WordPress 5.1.1
+* Update: Plugin Framework
+* Fix: Issue with WPML
 
 = 1.2.11 =
 * New: Support to WooCommerce 3.5.4

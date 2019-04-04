@@ -68,7 +68,12 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
             $prefix = 'ywtm';
 
             foreach ($yith_tabs as $yith_tab) {
-                $tab_id = $yith_tab->ID;
+
+	            $tab_id =  $yith_tab->ID ;
+            	if( defined('ICL_LANGUAGE_CODE')) {
+		            $tab_id = apply_filters( 'wpml_object_id', $yith_tab->ID, 'ywtm_tab', false, ICL_LANGUAGE_CODE );
+
+	            }
 
                 if( !( ( 'yes' == $hide_is_empty ) && $this->is_empty( $tab_id ) ) ) {
                     $tab_key = $prefix . '_' . $tab_id;
@@ -91,8 +96,15 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
         public function is_empty( $key ){
 
             global $product ;
+
             $type_content = get_post_meta( $key, '_ywtm_enable_custom_content', true );
             $type_layout = get_post_meta( $key, '_ywtm_layout_type', true );
+
+            if( !$type_content ) {
+	            $lang = apply_filters( 'wpml_default_language', false );
+	            $key = apply_filters( 'wpml_object_id', $key, 'ywtm_tab', true, $lang );
+            }
+
 
             switch ( $type_layout ) {
 
@@ -194,11 +206,13 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                 default :
 
                     if( true == $type_content ) {
+
                         $content = get_post_meta( $key, '_ywtm_text_tab', true );
                     }
                     else {
 
                         $content =  yit_get_prop( $product, $key . '_default_editor', true );
+
                     }
 
 
@@ -263,6 +277,11 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
             $type_content = get_post_meta( $key, '_ywtm_enable_custom_content', true );
             $type_layout = get_post_meta( $key, '_ywtm_layout_type', true );
             $args = array();
+
+	        if( !$type_content ) {
+		        $lang = apply_filters( 'wpml_default_language', false );
+		        $key = apply_filters( 'wpml_object_id', $key, 'ywtm_tab', true, $lang );
+	        }
 
             switch ( $type_layout ) {
 
@@ -507,6 +526,10 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                 wp_register_style( 'yit-tabmanager-frontend', YWTM_ASSETS_URL . 'css/yith-tab-manager-frontend.css', true, YWTM_VERSION );
 
                 wp_enqueue_style( 'yit-tabmanager-frontend' );
+
+                $custom_css = get_option( 'ywtm_custom_style', '');
+
+                wp_add_inline_style( 'yit-tabmanager-frontend', $custom_css );
 
 	            if( !wp_style_is('font-awesome' ) ){
 		            wp_enqueue_style( 'font-awesome' );
