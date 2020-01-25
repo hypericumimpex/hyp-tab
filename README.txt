@@ -3,13 +3,28 @@
 Contributors: yithemes
 Tags: tab, woocommerce, product, custom tab, e-commerce, ecommerce, commerce, global tab, product tab, tab manager, tabs, shop, yith, yit, yithemes
 Requires at least: 3.5.1
-Tested up to: 5.1.1
-Stable tag: 1.2.13
+Tested up to: 5.2
+Stable tag: 1.2.16
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Documentation: http://yithemes.com/docs-plugins/yith-woocommerce-tab-manager/
 
 == Changelog ==
+
+= 1.2.16 =
+* New: Support to WooCommerce 3.7 RC1
+* Update: Plugin Framework
+* Update: Italian language
+
+= 1.2.15 =
+* Update: Plugin Framework
+
+
+= 1.2.14 =
+* New: Custom email for Contact form tab available among WooCommerce Emails
+* Update: Plugin Framework
+* Update: Language files
+
 = 1.2.13 =
 * New: Support to WordPress 5.2
 * Update: Plugin Framework

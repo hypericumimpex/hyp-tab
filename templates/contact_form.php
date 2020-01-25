@@ -2,7 +2,7 @@
 if ( ! is_array( $form ) ) {
 	$form = array();
 }
-
+global  $product;
 $show_name     = ( isset( $form['name']['show'] ) && ( 'yes' == $form['name']['show'] || 'on' == $form['name']['show'] ) ) ? true : false;
 $show_req_name = ( isset( $form['name']['req'] ) && ( 'yes' == $form['name']['req'] || 'on' == $form['name']['req'] ) ) ? true : false;
 
@@ -17,7 +17,7 @@ $col        = 'ywtm_col_' . $col;
 $star_name  = $show_req_name ? '*' : '';
 $star_addr  = $show_req_webaddr ? '*' : '';
 $star_subj  = $show_subject ? '*' : '';
-$product_id = yit_get_product_id( $GLOBALS['product'] );
+$product_id =$product->get_id();
 ?>
 <div class="yit_wc_tab_manager_contact_form_container ywtm_content_tab">
     <div class="error_messages"></div>
@@ -66,6 +66,12 @@ $product_id = yit_get_product_id( $GLOBALS['product'] );
                     <input type="hidden" name="ywtm_req_info" value="req"/>
                     <input type="hidden" name="ywtm_product_id" value="<?php echo $product_id; ?>"/>
                     <input type="hidden" name="ywtm_action" value="ywtm_sendermail"/>
+                    <?php
+                    if ( defined( 'ICL_LANGUAGE_CODE' ) ) {
+	                    echo '<input type="hidden" name ="ywtm_language" value="'.ICL_LANGUAGE_CODE.'">';
+                    }
+                    ?>
+
                     <div style="position:absolute; z-index:-1; <?php echo( is_rtl() ? "margin-right:-9999999px;" : "margin-left:-9999999px;" ); ?> ">
                         <input type="text" name="ywtm_bot" class="ywtm_bot"/></div>
                     <span id="ywtm_btn_container"><input type="submit" class="ywtm_btn_sendmail"

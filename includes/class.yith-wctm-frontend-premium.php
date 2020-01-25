@@ -77,7 +77,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
 
                 if( !( ( 'yes' == $hide_is_empty ) && $this->is_empty( $tab_id ) ) ) {
                     $tab_key = $prefix . '_' . $tab_id;
-                    $tabs[$tab_key] = $this->set_single_tab($yith_tab);
+                    $tabs[$tab_key] = $this->set_single_tab($tab_id);
 
                     add_filter('woocommerce_product_' . $tab_key . '_tab_title', array($this, 'decode_html_tab'), 10, 2);
                 }
@@ -114,7 +114,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                         $content = get_post_meta( $key, '_ywtm_download', true );
                     }
                     else {
-                        $content = yit_get_prop( $product, $key . '_custom_list_file', true );
+                        $content =  $product->get_meta( $key . '_custom_list_file', true );
                     }
 
                     break;
@@ -126,7 +126,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                     }
 
                     else {
-                        $content = yit_get_prop( $product, $key . '_custom_list_faqs', true );
+                        $content =  $product->get_meta( $key . '_custom_list_faqs', true );
                     }
 
                     break;
@@ -139,7 +139,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                     }
                     else {
 
-                        $content =  yit_get_prop( $product, $key . '_custom_map', true );
+                        $content =  $product->get_meta( $key . '_custom_map', true );
 
                         $content = isset( $content['addr'] ) ? $content['addr'] : '';
                     }
@@ -153,7 +153,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                         $content = get_post_meta( $key, '_ywtm_form_tab', true );
                     }
                     else {
-                        $content =  yit_get_prop( $product, $key . '_custom_form', true );
+                        $content =   $product->get_meta( $key . '_custom_form', true );
                     }
 
 
@@ -168,7 +168,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                     }
                     else {
 
-                        $content =  yit_get_prop( $product, $key . '_custom_gallery', true );
+                        $content =   $product->get_meta($key . '_custom_gallery', true );
                         $content = isset( $content['images'] ) ? $content['images'] : '';
 
                     }
@@ -184,7 +184,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                     }
                     else {
 
-                        $result =  yit_get_prop( $product, $key . '_custom_video', true );
+                        $result =   $product->get_meta( $key . '_custom_video', true );
                         $content = $result ? 'video' : '';
                     }
 
@@ -197,7 +197,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                         $content = get_post_meta( $key, '_ywtm_shortcode_tab', true );
                     }
                     else {
-                        $content=  yit_get_prop( $product, $key . '_custom_shortcode', true );
+                        $content=   $product->get_meta( $key . '_custom_shortcode', true );
                     }
 
                     ;
@@ -211,7 +211,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                     }
                     else {
 
-                        $content =  yit_get_prop( $product, $key . '_default_editor', true );
+                        $content =   $product->get_meta( $key . '_default_editor', true );
 
                     }
 
@@ -244,12 +244,12 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
          * @param WP_Post $yith_tab
          * @return array
          */
-        public function set_single_tab($yith_tab)
+        public function set_single_tab($tab_id)
         {
 
-            $tab_id = $yith_tab->ID;
+        	$tab_post = get_post( $tab_id );
             $icon_html =  get_html_icon( $tab_id  );
-            $tab_title = apply_filters( 'ywtm_get_tab_title', $icon_html . $yith_tab->post_title, $yith_tab );
+            $tab_title = apply_filters( 'ywtm_get_tab_title', $icon_html . get_the_title( $tab_id ), $tab_post );
             $tab_priority = get_post_meta($tab_id, '_ywtm_order_tab', true);
             $tab = array(
                 'title' => $tab_title,
@@ -291,7 +291,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                         $args['download'] = get_post_meta( $key, '_ywtm_download', true );
                     }
                     else {
-                        $args['download'] = yit_get_prop( $product, $key . '_custom_list_file', true );
+                        $args['download'] =  $product->get_meta( $key . '_custom_list_file', true );
                     }
 
                     wc_get_template(  'download.php', $args,YWTM_TEMPLATE_PATH, YWTM_TEMPLATE_PATH );
@@ -304,7 +304,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                     }
 
                     else {
-                        $args['faqs'] = yit_get_prop( $product, $key . '_custom_list_faqs', true );
+                        $args['faqs'] =  $product->get_meta( $key . '_custom_list_faqs', true );
                     }
 
                     wc_get_template(  'faq.php', $args,YWTM_TEMPLATE_PATH, YWTM_TEMPLATE_PATH );
@@ -333,7 +333,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
 
                     }
                     else {
-                        $args['map'] = yit_get_prop( $product, $key . '_custom_map', true );
+                        $args['map'] =  $product->get_meta( $key . '_custom_map', true );
 
                     }
 
@@ -347,7 +347,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                         $args['form'] = get_post_meta( $key, '_ywtm_form_tab', true );
                     }
                     else {
-                        $args['form'] = yit_get_prop( $product, $key . '_custom_form', true );
+                        $args['form'] =  $product->get_meta( $key . '_custom_form', true );
                     }
 
                     wc_get_template(  'contact_form.php', $args,YWTM_TEMPLATE_PATH, YWTM_TEMPLATE_PATH );
@@ -363,7 +363,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                     }
                     else {
 
-                        $result = yit_get_prop( $product, $key . '_custom_gallery', true );
+                        $result = $product->get_meta( $key . '_custom_gallery', true );
                         if( isset( $result['settings'] ) ) {
                             $columns = $result['settings']['columns'];
 
@@ -397,7 +397,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                     }
                     else {
 
-                        $result = yit_get_prop( $product, $key . '_custom_video', true );
+                        $result =  $product->get_meta( $key . '_custom_video', true );
 
                         if( $result ) {
                             $columns = $result['settings']['columns'];
@@ -417,7 +417,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                         $args['shortcode'] = get_post_meta( $key, '_ywtm_shortcode_tab', true );
                     }
                     else {
-                        $args['shortcode'] = yit_get_prop( $product, $key . '_custom_shortcode', true );
+                        $args['shortcode'] =  $product->get_meta( $key . '_custom_shortcode', true );
                     }
 
                     wc_get_template(  'shortcode.php', $args,YWTM_TEMPLATE_PATH, YWTM_TEMPLATE_PATH );
@@ -431,7 +431,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                     }
                     else {
 
-                        $args['content'] = yit_get_prop( $product, $key . '_default_editor', true );
+                        $args['content'] =  $product->get_meta( $key . '_default_editor', true );
                     }
 
                     wc_get_template(  'default.php', $args,YWTM_TEMPLATE_PATH, YWTM_TEMPLATE_PATH );
@@ -450,7 +450,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
         public function customize_woocommerce_tab( $tabs )
         {
             global $product;
-            $product_id = yit_get_base_product_id( $product );
+            $product_id =  $product->get_id();
              $options_name = array(
                 'description' => 'ywtm_hide_wc_desc_tab_in_mobile',
                 'reviews' => 'ywtm_hide_wc_reviews_tab',
@@ -462,8 +462,8 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
 
             foreach ( $tab_type as $type ) {
 
-                $is_hide = yit_get_prop( $product, '_ywtm_hide_' . $type, true ) ;
-                $is_over = apply_filters( 'ywtm_override_wc_tab',yit_get_prop( $product, '_ywtm_override_' . $type, true ), $type );
+                $is_hide =  $product->get_meta( '_ywtm_hide_' . $type, true ) ;
+                $is_over = apply_filters( 'ywtm_override_wc_tab', $product->get_meta( '_ywtm_override_' . $type, true ), $type );
                 $global_hide_option = 'no';
 
                 if( isset( $options_name[$type] ) ){
@@ -477,9 +477,9 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
                 }
                 elseif( $is_over === 'yes' ) {
 
-                    $title = apply_filters( 'ywtm_override_wc_tab',yit_get_prop( $product, '_ywtm_title_tab_' . $type, true ), $type );
+                    $title = apply_filters( 'ywtm_override_wc_tab', $product->get_meta( '_ywtm_title_tab_' . $type, true ), $type );
 
-                    $tabs[$type]['priority'] = yit_get_prop( $product, '_ywtm_priority_tab_' . $type, true );
+                    $tabs[$type]['priority'] =  $product->get_meta( '_ywtm_priority_tab_' . $type, true );
                     $tabs[$type]['title'] = $type === 'reviews' ? str_replace( '%d', $product->get_review_count(), $title ) : $title;
 
                     if( $type === 'description' ) {
@@ -502,7 +502,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
         {
 
             global $product;
-            $content = yit_get_prop( $product, '_ywtm_content_tab_description', true );
+            $content =  $product->get_meta( '_ywtm_content_tab_description', true );
 
             $args = array(
                 'content' => $content
@@ -517,7 +517,7 @@ if (!class_exists('YITH_WCTM_Frontend_Premium')) {
          */
         public function include_style_and_script() {
 
-	        wp_register_style( 'font-retina', YWTM_ASSETS_URL.'/fonts/retinaicon-font/style.css', array(), YWTM_VERSION );
+	        wp_register_style( 'font-retina', YWTM_ASSETS_URL.'fonts/retinaicon-font/style.css', array(), YWTM_VERSION );
 
 	        if ( is_product() ) {
 

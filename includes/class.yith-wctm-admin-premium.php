@@ -158,7 +158,7 @@ if( !class_exists('YITH_WCTM_Admin_Premium')){
 
 	        $current_screen = get_current_screen();
 
-	        wp_register_style( 'font-retina', YWTM_ASSETS_URL.'/fonts/retinaicon-font/style.css', array(), YWTM_VERSION );
+	        wp_register_style( 'font-retina', YWTM_ASSETS_URL.'fonts/retinaicon-font/style.css', array(), YWTM_VERSION );
 
 	        if( isset( $current_screen->post_type ) && ( ( 'ywtm_tab' == $current_screen->post_type )  || 'product' == $current_screen->post_type ) ) {
 

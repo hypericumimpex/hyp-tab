@@ -117,6 +117,8 @@ if ( ! class_exists( 'YITH_WC_Tab_Manager' ) ) {
 				'yith_add_retina_to_icons'
 			), 10, 2 );
 
+			add_filter( 'woocommerce_email_classes', array( $this, 'add_woocommerce_emails' ) );
+
 
 		}
 
@@ -155,6 +157,22 @@ if ( ! class_exists( 'YITH_WC_Tab_Manager' ) ) {
 			$yit_icons['retinaicon-font'] = json_decode( file_get_contents( $font_json ), true );
 
 			return $yit_icons;
+		}
+
+		/**
+		 * add new email class
+		 * @author YITHEMES
+		 * @since 1.0.0
+		 *
+		 * @param array $emails
+		 *
+		 * @return array
+		 */
+		public function add_woocommerce_emails( $emails ) {
+
+			$emails['YITH_Tab_Manager_Admin_Email']        = include( YWTM_INC . 'email/class.yith-tab-manager-email.php' );
+
+			return $emails;
 		}
 
 	}

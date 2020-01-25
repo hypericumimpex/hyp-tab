@@ -4,7 +4,7 @@ if (!defined('ABSPATH')) {
 }
 
 global $product_object;
-$product_id = yit_get_product_id( $product_object );
+$product_id = $product_object->get_id();
 $tab_id = $tab->ID;
 $gallery_images = get_post_meta( $product_id, $tab_id."_custom_gallery", true );
 $image_ids='';

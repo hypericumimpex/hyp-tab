@@ -3,7 +3,7 @@ if (!defined('ABSPATH')) {
     exit;
 }
 global $product_object;
-$product_id = yit_get_product_id( $product_object );
+$product_id =  $product_object->get_id();
 $tab_id = $tab->ID;
 $editor_args = array(
     'wpautop'       => true, // use wpautop?

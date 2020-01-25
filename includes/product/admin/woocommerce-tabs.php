@@ -11,7 +11,7 @@ if( !defined( 'ABSPATH' ) )
  * @var WC_Product $product_object
  */
 global $product_object;
-$product_id = yit_get_product_id( $product_object );
+$product_id = $product_object->get_id();
 
 $wc_tabs = ywtm_get_default_tab( $product_id );
 $content = $product_object->get_description();

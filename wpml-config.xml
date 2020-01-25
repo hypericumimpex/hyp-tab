@@ -24,4 +24,10 @@
         <custom-field action="copy">_ywtm_form_tab</custom-field>
 
     </custom-fields>
+    <admin-texts>
+        <key name="woocommerce_yith_tab_manager_send_info_settings">
+            <key name="heading"/>
+            <key name="email-description"/>
+        </key>
+    </admin-texts>
 </wpml-config>

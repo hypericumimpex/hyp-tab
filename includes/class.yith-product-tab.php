@@ -169,7 +169,7 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
         public function filter_tabs_by_category( $product, $tabs ){
 
             $filtered_tabs = array();
-            $product_id = yit_get_product_id( $product );
+            $product_id =  $product ->get_id();
 
             $categories   = wp_get_post_terms( $product_id, 'product_cat', array( "fields" => "ids" ) );
 
@@ -201,7 +201,7 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
         public function filter_tabs_by_product( $product, $tabs ){
 
             $filtered_tabs = array();
-            $product_id = yit_get_product_id( $product );
+            $product_id =  $product->get_id();
             foreach ( $tabs as $tab ) {
                 $prods = ywtm_get_meta( $tab->ID, '_ywtm_tab_product' );
 
@@ -297,11 +297,16 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
                     }
                 }
 
-                yit_save_prop( $product, $tab_id.'_custom_list_file', $files );
+                 $product->update_meta_data( $tab_id.'_custom_list_file', $files );
+	            $product->save();
 
             } else {
-                yit_delete_prop( $product, $tab_id.'_custom_list_file' );
+                $product->delete_meta_data( $tab_id.'_custom_list_file' );
+	            $product->save();
             }
+
+
+
         }
 
 
@@ -331,10 +336,12 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
                     }
                 }
 
-                yit_save_prop( $product, $tab_id.'_custom_list_faqs', $faqs );
+                 $product->update_meta_data( $tab_id.'_custom_list_faqs', $faqs );
+                $product->save();
 
             } else {
-                yit_delete_prop( $product, $tab_id.'_custom_list_faqs' );
+                 $product->delete_meta_data( $tab_id.'_custom_list_faqs' );
+                 $product->save();
             }
         }
 
@@ -368,10 +375,12 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
                     'settings' => $gallery_setting,
                     'images'   => $images
                 );
-                yit_save_prop( $product, $tab_id.'_custom_gallery', $args );
+                 $product->update_meta_data( $tab_id.'_custom_gallery', $args );
+                 $product->save();
 
             } else {
-                yit_delete_prop( $product, $tab_id.'_custom_gallery' );
+                $product->delete_meta_data( $tab_id.'_custom_gallery' );
+	            $product->save();
             }
         }
 
@@ -411,9 +420,11 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
                     'video'    => $videos
                 );
 
-                yit_save_prop( $product, $tab_id.'_custom_video', $args );
+                 $product->update_meta_data( $tab_id.'_custom_video', $args );
+                 $product->save();
             } else {
-                yit_delete_prop( $product, $tab_id.'_custom_video' );
+                $product->delete_meta_data( $tab_id.'_custom_video' );
+	            $product->save();
             }
         }
 
@@ -442,9 +453,11 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
                     'show_width' => $show_w
                 );
 
-                yit_save_prop( $product, $tab_id.'_custom_map', $map_setting );
+                 $product->update_meta_data( $tab_id.'_custom_map', $map_setting );
+                 $product->save();
             } else {
-                yit_delete_prop( $product, $tab_id.'_custom_map' );
+               $product->delete_meta_data( $tab_id.'_custom_map' );
+               $product->save();
             }
         }
 
@@ -460,9 +473,11 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
             $shortcode = isset( $values['shortcode' ] ) ?  $values['shortcode' ] : "";
 
             if ( ! empty( $shortcode ) ) {
-                yit_save_prop( $product, $tab_id.'_custom_shortcode', $shortcode );
+                 $product->update_meta_data( $tab_id.'_custom_shortcode', $shortcode );
+                 $product->save();
             } else {
-                yit_delete_prop( $product, $tab_id.'_custom_shortcode' );
+                $product->delete_meta_data( $tab_id.'_custom_shortcode' );
+                $product->save();
             }
 
         }
@@ -484,7 +499,8 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
             $fields['webaddr']['req']   = isset(  $values['webaddr_req' ] ) ?  $values['webaddr_req' ] : 'off';
             $fields['subj']['req']      = isset(  $values['subj_req' ] ) ?  $values['subj_req' ] : 'off';
 
-            yit_save_prop( $product, $tab_id . '_custom_form', $fields );
+             $product->update_meta_data( $tab_id . '_custom_form', $fields );
+             $product->save();
         }
 
         /**
@@ -498,7 +514,8 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
         public function save_editor_tab( $product, $tab_id, $values ){
             if ( isset( $values[ 'default_editor' ] ) ) {
                 $content = wp_unslash( $values[ 'default_editor' ] );
-                yit_save_prop( $product, $tab_id . '_default_editor', $content );
+                 $product->update_meta_data( $tab_id . '_default_editor', $content );
+                 $product->save();
 
             }
         }
@@ -526,10 +543,10 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
                 $title_key    = '_ywtm_title_tab_' . $key;
                 $title_val    = isset( $_REQUEST[ 'ywtm_title_tab_' . $key ] ) ? $_REQUEST[ 'ywtm_title_tab_' . $key ] : '';
 
-                yit_save_prop( $product, $is_hide_key, $is_hide_val );
-                yit_save_prop( $product, $is_over_key, $is_over_val );
-                yit_save_prop( $product, $priority_key, $priority_val );
-                yit_save_prop( $product, $title_key, $title_val );
+                $product->update_meta_data( $is_hide_key, $is_hide_val );
+	            $product->update_meta_data( $is_over_key, $is_over_val );
+	            $product->update_meta_data( $priority_key, $priority_val );
+	            $product->update_meta_data( $title_key, $title_val );
 
                 if ( $key === 'description' ) {
 
@@ -537,8 +554,10 @@ if ( ! class_exists( 'YWTM_Product_Tab' ) ) {
                     $desc_val = isset( $_REQUEST[ 'ywtm_content_tab_' . $key ] ) ? $_REQUEST[ 'ywtm_content_tab_' . $key ] : '';
                     $desc_val = wp_unslash( $desc_val );
 
-                    yit_save_prop( $product, $desc_key, $desc_val );
+	                $product->update_meta_data( $desc_key, $desc_val );
                 }
+
+                $product->save();
 
 
             }

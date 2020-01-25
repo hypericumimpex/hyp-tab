@@ -2,15 +2,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Tab Manager\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/init\n"
-"POT-Creation-Date: 2018-10-23 15:43:24+00:00\n"
-"PO-Revision-Date: 2018-10-24 18:44+0200\n"
+"POT-Creation-Date: 2019-07-04 11:44:36+00:00\n"
+"PO-Revision-Date: 2019-07-19 22:53+0200\n"
 "Last-Translator: \n"
 "Language-Team: Your Inspiration Themes <plugins@yithemes.com>\n"
 "Language: it_IT\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.2\n"
+"X-Generator: Poedit 2.2.3\n"
 "X-Poedit-Basepath: .\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-SourceCharset: UTF-8\n"
@@ -50,7 +50,6 @@ msgid "Date"
 msgstr "Data"
 
 #: includes/class.yith-wctm-post-type-premium.php:53
-#: includes/email/yith-tab-manager-email-template.php:82
 #: includes/metabox/tab-metabox.php:12
 #: includes/yith-tab-manager-functions.php:52
 msgid "Description"
@@ -184,38 +183,86 @@ msgstr "È visibile"
 msgid "Tab Position"
 msgstr "Posizione della tab"
 
-#: includes/email/yith-tab-manager-email-template.php:26
-msgid "New info request"
-msgstr "Richiesta nuove info"
+#: includes/email/class.yith-tab-manager-email.php:14
+msgid "[YITH Tab Manager] Product Info request"
+msgstr "[YITH Tab Manager] Richiesta informazioni prodotto"
 
-#: includes/email/yith-tab-manager-email-template.php:49
+#: includes/email/class.yith-tab-manager-email.php:15
+msgid ""
+"This email is sent when a customer click on \"send\" on the tab manager "
+"contact form"
+msgstr ""
+"Questa email viene inviata quando un cliente fa clic su \"invia\" sul modulo "
+"di contatto"
+
+#: includes/email/class.yith-tab-manager-email.php:28
+msgid "Ask for {product_name}"
+msgstr "Chiedi {product_name}"
+
+#: includes/email/class.yith-tab-manager-email.php:69
+msgid "Message sent!"
+msgstr "Messaggio inviato!"
+
+#: includes/email/class.yith-tab-manager-email.php:71
+msgid "Error, Please Try Again!"
+msgstr "Errore, per favore prova di nuovo!"
+
+#: includes/email/class.yith-tab-manager-email.php:85
+msgid "Request from {username}"
+msgstr "Richiesta da {username}"
+
+#: includes/email/class.yith-tab-manager-email.php:136
+msgid "Enable/Disable"
+msgstr "Attiva/Disattiva"
+
+#: includes/email/class.yith-tab-manager-email.php:138
+msgid "Enable this email notification"
+msgstr "Abilita questa notifica email"
+
+#: includes/email/class.yith-tab-manager-email.php:142
+msgid "Recipient(s)"
+msgstr "Destinatario/i"
+
+#: includes/email/class.yith-tab-manager-email.php:144
+msgid ""
+"Enter recipients (separated by commas) for this email. Defaults to <code>%s</"
+"code>"
+msgstr ""
+"Inserisci i destinatari (separati dalla virgola) di questa email. Invia di "
+"default a <code>%s</code>"
+
+#: includes/email/class.yith-tab-manager-email.php:150
+msgid "Email Heading"
+msgstr "Intestazione email"
+
+#: includes/email/class.yith-tab-manager-email.php:152
+msgid ""
+"This field lets you change the main heading in email notification. Leave it "
+"blank to use default heading type: <code>%s</code>."
+msgstr ""
+"Questo campo ti permette di modificare l'intestazione principale della "
+"notifica email. Lascia vuoto per utilizzare l'intestazione predefinita: "
+"<code>%s</code>."
+
+#: includes/email/class.yith-tab-manager-email.php:157
+msgid "Send CC copy"
+msgstr "Invia copia in CC"
+
+#: includes/email/class.yith-tab-manager-email.php:159
+msgid "Send a carbon copy to the user"
+msgstr "Invia una copia all'utente"
+
+#: includes/email/class.yith-tab-manager-email.php:163
+msgid "Email Description"
+msgstr "Descrizione email"
+
+#: includes/email/class.yith-tab-manager-email.php:166
 msgid ""
 "Hi administrator, you have just received an email about the following "
 "product:"
 msgstr ""
 "Salve amministratore, hai appena ricevuto un'email riguardo al seguente "
 "prodotto:"
-
-#: includes/email/yith-tab-manager-email-template.php:62
-msgid "Details"
-msgstr "Dettagli "
-
-#: includes/email/yith-tab-manager-email-template.php:65
-#: includes/product/admin/contact.php:32 includes/product/admin/download.php:17
-#: templates/metaboxes/types/ywtb-forms-type.php:40
-msgid "Name"
-msgstr "Nome"
-
-#: includes/email/yith-tab-manager-email-template.php:70
-#: templates/contact_form.php:39
-msgid "Email"
-msgstr "Email"
-
-#: includes/email/yith-tab-manager-email-template.php:76
-#: includes/product/admin/contact.php:41 templates/contact_form.php:46
-#: templates/metaboxes/types/ywtb-forms-type.php:72
-msgid "Website"
-msgstr "Sito web"
 
 #: includes/metabox/tab-layout-metabox.php:10
 msgid "Layout"
@@ -363,8 +410,8 @@ msgid "Choose the product categories in which you want to show the tab"
 msgstr "Scegli le categorie di prodotto in cui vuoi mostrare la tab"
 
 #: includes/metabox/tab-metabox.php:40
-msgid "Search for a category&hellip;"
-msgstr "Cerca una categoria &hellip;"
+msgid "Search for a category"
+msgstr "Cerca una categoria "
 
 #: includes/metabox/tab-metabox.php:51
 msgid "Choose Product"
@@ -375,8 +422,8 @@ msgid "Choose the Products in which you want to show the tab"
 msgstr "Scegli i prodotti in cui vuoi mostrare la tab"
 
 #: includes/metabox/tab-metabox.php:57
-msgid "Search for a product&hellip;"
-msgstr "Cerca un prodotto&hellip;"
+msgid "Search for a product"
+msgstr "Cerca un prodotto"
 
 #: includes/metabox/tab-metabox.php:68
 msgid "Enable Tab"
@@ -408,11 +455,22 @@ msgstr "Icona personalizzata"
 msgid "None"
 msgstr "Nessuno"
 
+#: includes/product/admin/contact.php:32 includes/product/admin/download.php:17
+#: templates/emails/ask-product-info.php:31
+#: templates/metaboxes/types/ywtb-forms-type.php:40
+msgid "Name"
+msgstr "Nome"
+
 #: includes/product/admin/contact.php:37 includes/product/admin/contact.php:46
 #: includes/product/admin/contact.php:56
 #: templates/metaboxes/types/ywtb-forms-type.php:32
 msgid "Check this option to make it required."
 msgstr "Spunta questa opzione per renderla obbligatoria."
+
+#: includes/product/admin/contact.php:41 templates/contact_form.php:46
+#: templates/metaboxes/types/ywtb-forms-type.php:72
+msgid "Website"
+msgstr "Sito web"
 
 #: includes/product/admin/contact.php:51 templates/contact_form.php:57
 #: templates/metaboxes/types/ywtb-forms-type.php:104
@@ -489,7 +547,7 @@ msgid "Add images"
 msgstr "Aggiungi immagini"
 
 #: includes/product/admin/gallery.php:58
-#: includes/product/admin/html-tab-download.php:12
+#: includes/product/admin/html-tab-download.php:17
 #: includes/product/admin/html-tab-faq.php:10
 #: includes/product/admin/html-tab-video.php:16
 msgid "Delete"
@@ -504,17 +562,17 @@ msgstr "Nome del file"
 msgid "Insert a short description of the file"
 msgstr "Inserisci una breve descrizione del file"
 
-#: includes/product/admin/html-tab-download.php:10
+#: includes/product/admin/html-tab-download.php:14
 msgid "http://"
 msgstr "http://"
 
-#: includes/product/admin/html-tab-download.php:11
-#: templates/metaboxes/types/views/download-table-row.php:26
+#: includes/product/admin/html-tab-download.php:16
+#: templates/metaboxes/types/views/download-table-row.php:34
 msgid "Choose file"
 msgstr "Scegli file"
 
-#: includes/product/admin/html-tab-download.php:11
-#: templates/metaboxes/types/views/download-table-row.php:26
+#: includes/product/admin/html-tab-download.php:16
+#: templates/metaboxes/types/views/download-table-row.php:34
 msgid "Insert file URL"
 msgstr "Inserisci l'URL del file"
 
@@ -616,43 +674,27 @@ msgstr ""
 msgid "Priority"
 msgstr "Priorità"
 
-#: includes/yith-tab-manager-actions.php:61
-msgid "Request from "
-msgstr "Richiesta da"
-
-#: includes/yith-tab-manager-actions.php:62
-msgid "From: "
-msgstr "Da:"
-
-#: includes/yith-tab-manager-actions.php:80
-msgid "Message sent!"
-msgstr "Messaggio inviato!"
-
-#: includes/yith-tab-manager-actions.php:82
-msgid "Error, Please Try Again!"
-msgstr "Errore, per favore prova di nuovo!"
-
-#: includes/yith-tab-manager-actions.php:106
+#: includes/yith-tab-manager-actions.php:101
 msgid "Email is required!"
 msgstr "L'email è obbligatoria!"
 
-#: includes/yith-tab-manager-actions.php:109
+#: includes/yith-tab-manager-actions.php:103
 msgid "Email not valid!"
 msgstr "Email non valida!"
 
-#: includes/yith-tab-manager-actions.php:116
+#: includes/yith-tab-manager-actions.php:111
 msgid "Name is required!"
 msgstr "Il nome è obbligatorio!"
 
-#: includes/yith-tab-manager-actions.php:122
+#: includes/yith-tab-manager-actions.php:118
 msgid "Subject is required!"
 msgstr "L'oggetto è obbligatorio!"
 
-#: includes/yith-tab-manager-actions.php:127
+#: includes/yith-tab-manager-actions.php:124
 msgid "Website is required!"
 msgstr "Il sito web è obbligatorio!"
 
-#: includes/yith-tab-manager-actions.php:131
+#: includes/yith-tab-manager-actions.php:129
 msgid "Message is required!"
 msgstr "Il messaggio è obbligatorio!"
 
@@ -773,15 +815,19 @@ msgstr "Inserisci qui il tuo CSS personalizzato"
 msgid "Your name"
 msgstr "Il tuo nome"
 
+#: templates/contact_form.php:39 templates/emails/ask-product-info.php:33
+msgid "Email"
+msgstr "Email"
+
 #: templates/contact_form.php:65
 msgid "Your Message"
 msgstr "Il tuo messaggio"
 
-#: templates/contact_form.php:72
+#: templates/contact_form.php:78
 msgid "Send"
 msgstr "Invia"
 
-#: templates/contact_form.php:79
+#: templates/contact_form.php:85
 msgid "required"
 msgstr "obbligatorio"
 
@@ -793,13 +839,25 @@ msgstr "Nessun nome del file"
 msgid "No file description"
 msgstr "Nessuna descrizione del file"
 
-#: templates/download.php:15
+#: templates/download.php:28
 msgid "Download File"
 msgstr "Scarica file"
 
-#: templates/download.php:20
+#: templates/download.php:34
 msgid "No download for this product"
 msgstr "Nessun download per questo prodotto"
+
+#: templates/emails/ask-product-info.php:27
+msgid "Customer Details"
+msgstr "Dettagli cliente"
+
+#: templates/emails/ask-product-info.php:30
+msgid "Web Address"
+msgstr "Indirizzo web"
+
+#: templates/emails/ask-product-info.php:32
+msgid "Message"
+msgstr "Messaggio"
 
 #: templates/faq.php:19
 msgid "No FAQ for this product"
@@ -813,7 +871,7 @@ msgstr "Mostra in Google Map"
 msgid "No map for this product"
 msgstr "Nessuna mappa per questo prodotto"
 
-#: templates/metaboxes/types/views/download-table-row.php:27
+#: templates/metaboxes/types/views/download-table-row.php:35
 #: templates/metaboxes/types/views/faq-table-row.php:33
 #: templates/metaboxes/types/views/video-table-row.php:32
 msgid "Remove"
@@ -866,11 +924,20 @@ msgstr ""
 
 #. Author of the plugin/theme
 msgid "YITH"
-msgstr "YITH "
+msgstr "YITH"
 
 #. Author URI of the plugin/theme
 msgid "https://yithemes.com/"
 msgstr "https://yithemes.com/"
+
+#~ msgid "New info request"
+#~ msgstr "Richiesta nuove info"
+
+#~ msgid "Details"
+#~ msgstr "Dettagli "
+
+#~ msgid "From: "
+#~ msgstr "Da:"
 
 #~ msgid "Plugin Documentation"
 #~ msgstr "Documentazione plugin"
