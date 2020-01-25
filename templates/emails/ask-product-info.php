@@ -27,7 +27,7 @@ do_action( 'woocommerce_email_header', $email_heading, $email );
         <h2><?php _e( 'Customer Details', 'yith-woocommerce-tab-manager' ); ?></h2>
 		<?php
 		$customer_keys = array(
-			'web_address' => __( 'Web Address', 'yith-woocmmerce-tab-manager' ),
+			'web_address' => __( 'Web Address', 'yith-woocommerce-tab-manager' ),
 			'username'    => __( 'Name', 'yith-woocommerce-tab-manager' ),
 			'message'     => __( 'Message', 'yith-woocommerce-tab-manager' ),
 			'user_email'  => __( 'Email', 'yith-woocommerce-tab-manager' )

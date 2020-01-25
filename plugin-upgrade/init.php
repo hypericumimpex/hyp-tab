@@ -1,13 +1,13 @@
 <?php
 /**
  * Framework Name: YITH License & Upgrade Framework
- * Version:  3.2.4
+ * Version:  3.2.9
  * Author: YITHEMES
  * Text Domain: yith-plugin-upgrade-fw
  * Domain Path: /languages/
  *
  * @author  Your Inspiration Themes
- * @version 3.1.26
+ * @version 3.2.9
  */
 /**
  * This file belongs to the YIT Plugin Framework.

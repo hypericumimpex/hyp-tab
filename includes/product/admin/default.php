@@ -25,6 +25,7 @@ $editor_args = array(
          <div class="editor" style="margin:30px;">
              <?php
              $content =  get_post_meta( $product_id,$tab_id.'_default_editor',true);
+
              $content = wp_kses_post(  str_replace( '\\','', $content ),'UTF-8' );
              $editor_id = $tab_id.'_default_editor';
              wp_editor( $content, $editor_id , $editor_args );

@@ -3,40 +3,55 @@
 Contributors: yithemes
 Tags: tab, woocommerce, product, custom tab, e-commerce, ecommerce, commerce, global tab, product tab, tab manager, tabs, shop, yith, yit, yithemes
 Requires at least: 3.5.1
-Tested up to: 5.2
-Stable tag: 1.2.16
+Tested up to: 5.3
+Stable tag: 1.2.19
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Documentation: http://yithemes.com/docs-plugins/yith-woocommerce-tab-manager/
 
 == Changelog ==
+= 1.2.19 - Released on 19 December 2019 =
+* New: Support for WooCommerce 3.9
+* New: Plugin panel style
+* Update: Plugin Framework
+= 1.2.18 - Released on 03 December 2019 =
 
-= 1.2.16 =
+* Update: Plugin Framework
+* Dev: added ywtm_include_only_visible_tab filter
+* Fix: Fatal Error with WooCommerce Multilingual 4.7.5
+* Fix: FontAwesome icon
+
+= 1.2.17 - Released on 04 November 2019 =
+* New: Support for WooCommerce 3.8
+* New: Support for WordPress 5.3
+* Update: Spanish language
+
+= 1.2.16 - Released on 01 August 2019 =
 * New: Support to WooCommerce 3.7 RC1
 * Update: Plugin Framework
 * Update: Italian language
 
-= 1.2.15 =
+= 1.2.15 - Released on 08 July 2019 =
 * Update: Plugin Framework
 
 
-= 1.2.14 =
+= 1.2.14 - Released on 03 July 2019 =
 * New: Custom email for Contact form tab available among WooCommerce Emails
 * Update: Plugin Framework
 * Update: Language files
 
-= 1.2.13 =
+= 1.2.13 - Released on 29 May 2019 =
 * New: Support to WordPress 5.2
 * Update: Plugin Framework
 * Update: Spanish language
 
-= 1.2.12 =
+= 1.2.12 - Released on 03 April 2019 =
 * New: Support to WooCommerce 3.6 RC1
 * New: Support to WordPress 5.1.1
 * Update: Plugin Framework
 * Fix: Issue with WPML
 
-= 1.2.11 =
+= 1.2.11 - Released on 23 January 2019 =
 * New: Support to WooCommerce 3.5.4
 * Dev: Added filter ywtm_change_url_path
 * Update: Plugin Framework

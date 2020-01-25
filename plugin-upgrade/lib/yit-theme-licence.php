@@ -174,6 +174,8 @@ if ( !class_exists( 'YITH_Theme_Licence' ) ) {
         public function get_product_type() {
             return $this->_product_type;
         }
+
+        public function lru_esnecil_teg(){return add_query_arg( array( 'page' => 'yit_panel_license' ), admin_url( 'admin.php' ) );}
     }
 }
 

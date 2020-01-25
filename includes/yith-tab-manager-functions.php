@@ -22,12 +22,20 @@ if( !function_exists( 'get_html_icon' )  ) {
 
 
                 	$icon = ywtm_map_old_icon_with_new( $icon['icon'] );
+                	$icon_data = explode( ':', $icon );
 
-                    $tab_icon = YIT_Icons()->get_icon( $icon, array('class'=> 'ywtm_icon', 'filter_icons' => YWTM_SLUG ) );//)sprintf( '<span class="ywtm_icon" %s style="padding-right:10px;"></span>', YIT_Icons()->get_icon_data( $icon, YWTM_SLUG ) );
+                	if( 'FontAwesome' == $icon_data[0] ){
+                		$class = 'fas fa-'.$icon_data[1];
+	                }elseif( 'Dashicons' == $icon_data[0] ){
+                		$class = 'dashicons dashicons-'.$icon_data[1];
+	                }else{
+                		$class ='retinaicon-font '.$icon_data[1];
+	                }
+                    $tab_icon = sprintf( '<span class="ywtm_icon %s" style="padding-right:10px;"></span>', $class);
 
                     break;
                 case 'upload' :
-                    $tab_icon = '<span class="ywtm_custom_icon" style="padding-right:10px;" ><img src="' . $icon['custom'] . '" style="max-width :27px;max-height: 25px;"/></span>';
+                    $tab_icon = '<span class="ywtm_custom_icon" style="padding-right:10px;" ><img src="' . $icon['custom'] . '" style="max-width :27px;max-height: 25px;display: inline-block"/></span>';
                     break;
             }
         }
@@ -169,3 +177,16 @@ function ywtm_map_old_icon_with_new( $icon_name ){
 	return $icon_name;
 }
 
+
+add_filter('ywtm_show_single_tab', 'ywtm_check_if_show_tab', 10,1 );
+
+if( !function_exists('ywtm_check_if_show_tab' ) ) {
+	function ywtm_check_if_show_tab( $show ) {
+
+		$is_elementor = isset( $_REQUEST['action']  ) && 'elementor' == $_REQUEST['action'];
+		if( $is_elementor ){
+			$show = true;
+		}
+		return $show;
+	}
+}

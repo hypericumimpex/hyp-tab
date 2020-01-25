@@ -59,7 +59,8 @@ if ( ! class_exists( 'YITH_WCTM_Admin' ) ) {
 			}
 
 			$admin_tabs = array(
-				'settings' => __( 'Settings', 'yith-woocommerce-tab-manager' ),
+				'tabs-list' => __( 'Tab Manager', 'yith-woocommerce-tab-manager' ),
+				'settings'  => __( 'Settings', 'yith-woocommerce-tab-manager' ),
 			);
 
 			if ( ! defined( 'YWTM_PREMIUM' ) ) {
@@ -70,10 +71,12 @@ if ( ! class_exists( 'YITH_WCTM_Admin' ) ) {
 				'create_menu_page' => true,
 				'parent_slug'      => '',
 				'page_title'       => __( 'Tab Manager', 'yith-woocommerce-tab-manager' ),
+				'plugin_slug'      => YWTM_SLUG,
 				'menu_title'       => 'Tab Manager',
 				'capability'       => 'manage_options',
 				'parent'           => '',
 				'parent_page'      => 'yit_plugin_panel',
+				'class'            => yith_set_wrapper_class(),
 				'page'             => $this->_panel_page,
 				'admin-tabs'       => $admin_tabs,
 				'options-path'     => YWTM_DIR . '/plugin-options'
@@ -114,9 +117,9 @@ if ( ! class_exists( 'YITH_WCTM_Admin' ) ) {
 		 *
 		 * Load the premium tab template on admin page
 		 *
-		 * @since   1.0.0
-		 * @author  Andrea Grillo <andrea.grillo@yithemes.com>
 		 * @return  void
+		 * @author  Andrea Grillo <andrea.grillo@yithemes.com>
+		 * @since   1.0.0
 		 */
 		public function premium_tab() {
 			$premium_tab_template = YWTM_TEMPLATE_PATH . '/admin/' . $this->_premium;
@@ -133,10 +136,10 @@ if ( ! class_exists( 'YITH_WCTM_Admin' ) ) {
 		 * @param $links | links plugin array
 		 *
 		 * @return   mixed Array
-		 * @since    1.0
-		 * @author   Andrea Grillo <andrea.grillo@yithemes.com>
 		 * @return mixed
 		 * @use plugin_action_links_{$plugin_file_name}
+		 * @author   Andrea Grillo <andrea.grillo@yithemes.com>
+		 * @since    1.0
 		 */
 		public function action_links( $links ) {
 			$is_premium = defined( 'YWTM_INIT' );
@@ -181,8 +184,8 @@ if ( ! class_exists( 'YITH_WCTM_Admin' ) ) {
 
 		/**
 		 * Returns single instance of the class
-		 * @author Salvatore Strano
 		 * @return YITH_WCTM_Admin
+		 * @author Salvatore Strano
 		 * @since 2.0.0
 		 */
 		public static function get_instance() {

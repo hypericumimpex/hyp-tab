@@ -30,7 +30,28 @@ if ( ! class_exists( 'YITH_Tab_Manager_Admin_Email' ) ) {
 				$this->recipient = get_option( 'admin_email' );
 			}
 
+			global $woocommerce_wpml;
+
+			$is_wpml_configured = apply_filters( 'wpml_setting', false, 'setup_complete' );
+			if ( $is_wpml_configured && defined( 'WCML_VERSION' ) && $woocommerce_wpml ) {
+				add_action( 'send_tab_manager_email_notification', array( $this, 'refresh_email_lang' ), 10, 1 );
+			}
+
 			add_action( 'send_tab_manager_email_notification', array( $this, 'trigger' ), 15, 1 );
+
+		}
+
+		/**
+		 * @param $order_id
+		 */
+		function refresh_email_lang( $args ){
+			global $sitepress;
+
+			if ( ! empty( $args['language'] ) ) {
+				$lang = $args['language'];
+
+				$sitepress->switch_lang($lang,true);
+			}
 
 		}
 

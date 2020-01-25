@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: YITH WooCommerce Tab Manager\n"
 "Report-Msgid-Bugs-To: http://wordpress.org/tag/init\n"
-"POT-Creation-Date: 2019-07-04 11:44:36+00:00\n"
-"PO-Revision-Date: 2019-04-05 14:32+0100\n"
+"POT-Creation-Date: 2019-09-09 12:55+0100\n"
+"PO-Revision-Date: 2019-09-09 14:08+0100\n"
 "Last-Translator: \n"
 "Language-Team: Your Inspiration Themes <plugins@yithemes.com>\n"
 "Language: es_ES\n"
@@ -185,17 +185,19 @@ msgstr "Posición de la pestaña"
 
 #: includes/email/class.yith-tab-manager-email.php:14
 msgid "[YITH Tab Manager] Product Info request"
-msgstr ""
+msgstr "[YITH Tab Manager] Solicitud de información del producto"
 
 #: includes/email/class.yith-tab-manager-email.php:15
 msgid ""
 "This email is sent when a customer click on \"send\" on the tab manager "
 "contact form"
 msgstr ""
+"Este correo electrónico es enviado cuando el cliente hace clic en ‘’enviar’’ "
+"en el formulario de contacto de tab manager"
 
 #: includes/email/class.yith-tab-manager-email.php:28
 msgid "Ask for {product_name}"
-msgstr ""
+msgstr "Pedir {product_name}"
 
 #: includes/email/class.yith-tab-manager-email.php:69
 msgid "Message sent!"
@@ -206,51 +208,53 @@ msgid "Error, Please Try Again!"
 msgstr "Error, ¡por favor, inténtalo de nuevo!"
 
 #: includes/email/class.yith-tab-manager-email.php:85
-#, fuzzy
 msgid "Request from {username}"
-msgstr "Solicitar de"
+msgstr "Solicitud de {username}"
 
 #: includes/email/class.yith-tab-manager-email.php:136
-#, fuzzy
 msgid "Enable/Disable"
-msgstr "Habilitar Pestaña"
+msgstr "Activar/Desactivar"
 
 #: includes/email/class.yith-tab-manager-email.php:138
 msgid "Enable this email notification"
-msgstr ""
+msgstr "Activa esta notificación de correo electrónico"
 
 #: includes/email/class.yith-tab-manager-email.php:142
 msgid "Recipient(s)"
-msgstr ""
+msgstr "Destinatario(s)"
 
 #: includes/email/class.yith-tab-manager-email.php:144
 msgid ""
 "Enter recipients (separated by commas) for this email. Defaults to <code>%s</"
 "code>"
 msgstr ""
+"Introducir destinatarios (separados por comas) para este correo electrónico. "
+"Por defecto a <code>%s</code>"
 
 #: includes/email/class.yith-tab-manager-email.php:150
 msgid "Email Heading"
-msgstr ""
+msgstr "Encabezado del correo electrónico"
 
 #: includes/email/class.yith-tab-manager-email.php:152
 msgid ""
 "This field lets you change the main heading in email notification. Leave it "
 "blank to use default heading type: <code>%s</code>."
 msgstr ""
+"Este campo te permite cambiar el encabezado principal en ella notificación "
+"de correo electrónico. Déjalo en blanco para usar el tipo de encabezado "
+"predeterminado: <code>%s</code>."
 
 #: includes/email/class.yith-tab-manager-email.php:157
 msgid "Send CC copy"
-msgstr ""
+msgstr "Enviar una copia"
 
 #: includes/email/class.yith-tab-manager-email.php:159
 msgid "Send a carbon copy to the user"
-msgstr ""
+msgstr "Enviar una copia al usuario"
 
 #: includes/email/class.yith-tab-manager-email.php:163
-#, fuzzy
 msgid "Email Description"
-msgstr "Descripción del archivo"
+msgstr "Descripción del correo electrónico"
 
 #: includes/email/class.yith-tab-manager-email.php:166
 msgid ""
@@ -404,9 +408,8 @@ msgid "Choose the product categories in which you want to show the tab"
 msgstr "Elige las categorías de producto en las que quieres mostrar la pestaña"
 
 #: includes/metabox/tab-metabox.php:40
-#, fuzzy
 msgid "Search for a category"
-msgstr "Busque una categoría &hellip;"
+msgstr "Buscar una categoría &hellip;"
 
 #: includes/metabox/tab-metabox.php:51
 msgid "Choose Product"
@@ -417,9 +420,8 @@ msgid "Choose the Products in which you want to show the tab"
 msgstr "Elige los Productos en los que quieres mostrar la pestaña"
 
 #: includes/metabox/tab-metabox.php:57
-#, fuzzy
 msgid "Search for a product"
-msgstr "Busque un producto&hellip;"
+msgstr "Buscar un producto&hellip;"
 
 #: includes/metabox/tab-metabox.php:68
 msgid "Enable Tab"
@@ -846,19 +848,16 @@ msgid "No download for this product"
 msgstr "No hay descargas para este producto"
 
 #: templates/emails/ask-product-info.php:27
-#, fuzzy
 msgid "Customer Details"
-msgstr "Estilo personalizado"
+msgstr "Detalles del cliente"
 
 #: templates/emails/ask-product-info.php:30
-#, fuzzy
 msgid "Web Address"
-msgstr "Dirección"
+msgstr "Dirección de la web"
 
 #: templates/emails/ask-product-info.php:32
-#, fuzzy
 msgid "Message"
-msgstr "Tu mensaje"
+msgstr "Mensaje"
 
 #: templates/faq.php:19
 msgid "No FAQ for this product"

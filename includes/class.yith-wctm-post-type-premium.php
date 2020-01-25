@@ -201,11 +201,6 @@ if ( ! class_exists( 'YITH_WCTM_Post_Type_Premium' ) ) {
 				  'meta_query'       => array(
 					  'relation' => 'AND',
 					  array(
-						  'key'     => '_ywtm_show_tab',
-						  'value'   => 1,
-						  'compare' => '='
-					  ),
-					  array(
 						  'key'     => '_ywtm_tab_type',
 						  'value'   => $tab_type,
 						  'compare' => '='
@@ -223,9 +218,17 @@ if ( ! class_exists( 'YITH_WCTM_Post_Type_Premium' ) ) {
 				  );
 			  }
 
+			 if( apply_filters( 'ywtm_include_only_visible_tab', true ) ){
+				 $args['meta_query'][] =   array(
+					 'key'     => '_ywtm_show_tab',
+					 'value'   => 1,
+					 'compare' => '='
+				 );
+			 }
 
 
-			  if ( function_exists( 'pll_get_post_language' ) ) {
+
+			 if ( function_exists( 'pll_get_post_language' ) ) {
 				  $args = ywtm_get_tab_ppl_language( $args );
 			  }
 

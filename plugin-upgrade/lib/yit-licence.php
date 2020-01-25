@@ -47,13 +47,13 @@ if ( !class_exists( 'YITH_Licence' ) ) {
          * @var string The yithemes api uri
          * @since 1.0
          */
-        protected $_api_uri = 'https://yithemes.com';
+        protected $_api_uri = 'https://yithemes.com/wc-api/software-api/';
 
         /**
          * @var string The yithemes api uri query args
          * @since 1.0
          */
-        protected $_api_uri_query_args = '?wc-api=software-api&request=%request%';
+        protected $_api_uri_query_args = '?request=%request%';
 
 
         /**
@@ -258,7 +258,8 @@ if ( !class_exists( 'YITH_Licence' ) ) {
 
             $api_uri  = esc_url_raw( add_query_arg( $args, $this->get_api_uri( 'activation' ) ) );
             $timeout  = apply_filters( 'yith_plugin_fw_licence_timeout', 30, __FUNCTION__ );
-            $response = wp_remote_get( $api_uri, array( 'timeout' => $timeout ) );
+	        $do_request_args = apply_filters( 'yith_plugin_fw_do_request_args', array( 'timeout' => $timeout ) );
+            $response = $this->do_request( $api_uri, $do_request_args );
 
             if ( is_wp_error( $response ) ) {
                 $body = false;
@@ -329,7 +330,8 @@ if ( !class_exists( 'YITH_Licence' ) ) {
 
             $api_uri  = esc_url_raw( add_query_arg( $args, $this->get_api_uri( 'deactivation' ) ) );
             $timeout  = apply_filters( 'yith_plugin_fw_licence_timeout', 30, __FUNCTION__ );
-            $response = wp_remote_get( $api_uri, array( 'timeout' => $timeout ) );
+	        $do_request_args = apply_filters( 'yith_plugin_fw_do_request_args', array( 'timeout' => $timeout ) );
+            $response = $this->do_request( $api_uri, $do_request_args );
 
             if ( is_wp_error( $response ) ) {
                 $body = false;
@@ -461,7 +463,8 @@ if ( !class_exists( 'YITH_Licence' ) ) {
 
             $api_uri  = esc_url_raw( add_query_arg( $args, $this->get_api_uri( 'check' ) ) );
             $timeout  = apply_filters( 'yith_plugin_fw_licence_timeout', 30, __FUNCTION__ );
-            $response = wp_remote_get( $api_uri, array( 'timeout' => $timeout ) );
+	        $do_request_args = apply_filters( 'yith_plugin_fw_do_request_args', array( 'timeout' => $timeout ) );
+            $response = $this->do_request( $api_uri, $do_request_args );
 
             if ( ! is_wp_error( $response ) ) {
                 $body = json_decode( $response[ 'body' ] );
@@ -830,12 +833,30 @@ if ( !class_exists( 'YITH_Licence' ) ) {
         }
 
 	    /**
+	     * Do requests to yithemes network
+	     *
+	     * @param $url string Url to call
+	     * @param $args array Array of additional parameter for the remote call
+	     * @return WP_Error|array wp_remote_get response
+	     */
+	    protected function do_request( $url, $args = array() ) {
+		    $response = wp_remote_get( $url, $args );
+
+		    if( is_wp_error( $response ) || ( isset( $response['response'] ) && isset( $response['response']['code'] ) && floor( $response['response']['code'] / 100 ) >= 4 ) ){
+			    $alternative_url = str_replace( 'https://yithemes.com', 'https://casper.yithemes.com', $url );
+
+			    $response = wp_remote_get( $alternative_url, $args );
+		    }
+
+		    return $response;
+	    }
+
+	    /**
 	     * print notice with products to activate
 	     *
 	     * @since 3.0.0
 	     */
 	    public function eciton_esnecil_etavitca() {
-            return true;
 		    if ( $this->_show_eciton_esnecil_etavitca() ) {
 			    $products_to_activate = $this->get_to_active_products();
 			    if ( !!$products_to_activate ) {

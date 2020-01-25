@@ -130,8 +130,8 @@ if ( ! class_exists( 'YITH_WC_Tab_Manager' ) ) {
 		 */
 		public function is_admin() {
 			$is_ajax = ( defined( 'DOING_AJAX' ) && DOING_AJAX && isset( $_REQUEST['context'] ) && $_REQUEST['context'] == 'frontend' );
-
-			return is_admin() && ! $is_ajax;
+			$is_elementor = isset( $_REQUEST['action']  ) && 'elementor' == $_REQUEST['action'];
+			return is_admin() && ! $is_ajax && !$is_elementor;
 		}
 
 		/**

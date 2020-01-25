@@ -311,3 +311,15 @@ table.wp-list-table .column-thumbnail {
 .woocommerce_options_panel .custom_tab_options textarea{
     height:auto!important;
 }
+
+.ywtm_icon.fas{
+    font-family: 'FontAwesome' !important;
+    speak: none !important;
+    font-weight: normal !important;
+    font-variant: normal !important;
+    text-transform: none !important;
+    line-height: 1 !important;
+    font-style: normal !important;
+    -webkit-font-smoothing: antialiased !important;
+    -moz-osx-font-smoothing: grayscale !important;
+}

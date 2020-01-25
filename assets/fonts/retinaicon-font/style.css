@@ -24,6 +24,17 @@ li[class^='ywtm_'] span.icon[data-font="retinaicon-font"]:before,  #_ywtm_icon_t
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+span.ywtm_icon.retinaicon-font{
+  font-family: "retinaicon-font" !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-variant: normal !important;
+  text-transform: none !important;
+  speak: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 [class^="retina-"]:before,
 [class*=" retina-"]:before {

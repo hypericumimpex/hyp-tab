@@ -9,11 +9,9 @@ if( !class_exists('YITH_WCTM_Frontend')){
 
         public function __construct()
         {
-            if( get_option( 'ywtm_enable_plugin' ) == 'yes' ) {
+        	//add tabs to woocommerce
+            add_filter( 'woocommerce_product_tabs', array( $this, 'add_tabs_woocommerce' ), 20 );
 
-                //add tabs to woocommerce
-                add_filter( 'woocommerce_product_tabs', array( $this, 'add_tabs_woocommerce' ), 20 );
-            }
         }
 
         /**

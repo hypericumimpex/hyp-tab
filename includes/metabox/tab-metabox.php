@@ -17,6 +17,7 @@ $args          = array(
 	'pages'    => 'ywtm_tab', //or array( 'post-type1', 'post-type2')
 	'context'  => 'normal', //('normal', 'advanced', or 'side')
 	'priority' => 'default',
+	'class' => yith_set_wrapper_class(),
 	'tabs'     => array(
 		'settings' => array(
 			'label'  => __( 'Settings', 'yith-woocommerce-tab-manager' ),
